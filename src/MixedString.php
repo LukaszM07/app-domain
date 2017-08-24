@@ -13,6 +13,9 @@ final class MixedString
      */
     private $value;
 
+    /**
+     * @var int|null
+     */
     private $length;
 
     /**
@@ -21,7 +24,7 @@ final class MixedString
      *
      * @throws InvalidArgumentException
      */
-    public function __construct($value)
+    public function __construct(?string $value)
     {
         if (!$this->isValid($value)) {
             throw new InvalidArgumentException('Value is not valid mixed string.');
@@ -33,7 +36,7 @@ final class MixedString
     /**
      * @return string|null
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -41,7 +44,7 @@ final class MixedString
     /**
      * @return int
      */
-    public function getLength()
+    public function getLength(): int
     {
         if ($this->length === null) {
             $this->length = mb_strlen($this->value);
@@ -55,7 +58,7 @@ final class MixedString
      *
      * @return bool
      */
-    public function isLength($length)
+    public function isLength(int $length): bool
     {
         return $this->getLength() === $length;
     }
@@ -65,7 +68,7 @@ final class MixedString
      *
      * @return bool
      */
-    public function isLengthLongerThan($length)
+    public function isLengthLongerThan(int $length): bool
     {
         return $length < $this->getLength();
     }
@@ -75,7 +78,7 @@ final class MixedString
      *
      * @return bool
      */
-    public function isLengthShorterThan($length)
+    public function isLengthShorterThan(int $length): bool
     {
         return $length > $this->getLength();
     }
@@ -83,7 +86,7 @@ final class MixedString
     /**
      * @return string|null
      */
-    public function __toString()
+    public function __toString(): ?string
     {
         return $this->value;
     }
@@ -93,8 +96,8 @@ final class MixedString
      *
      * @return bool
      */
-    private function isValid($value)
+    private function isValid(?string $value): bool
     {
-        return (is_string($value) || is_null($value));
+        return is_string($value) || is_null($value);
     }
 }
