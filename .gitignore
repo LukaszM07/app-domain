@@ -1,0 +1,5 @@
+composer.lock
+nbproject/
+vendor/
+.idea
+tests/unit/results
