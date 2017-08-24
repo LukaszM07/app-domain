@@ -1,0 +1,28 @@
+{
+    "name": "app/app-domain",
+    "description": "Commonly used domain classes",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Lukasz Dziewa",
+            "email": "lukaszdziewa1@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "php": ">=7.1",
+        "phpunit/phpunit": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\Domain\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Application\\Domain\\Tests\\": "tests/unit//Domain/"
+        }
+    }
+}
